@@ -1,4 +1,4 @@
-view: native_derived_tabel {
+view: native_derived_table {
   derived_table: {
     explore_source: users {
       column: sum_age {}
