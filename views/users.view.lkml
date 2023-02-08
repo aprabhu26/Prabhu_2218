@@ -100,6 +100,39 @@ view: users {
     sql: ${TABLE}.zip ;;
   }
 
+  dimension: full_name {
+    type: string
+    sql: concat(${first_name}," ",${last_name});;
+  }
+
+  dimension: length_user_name {
+    type: string
+    sql: length(${full_name});;
+  }
+
+  dimension: len_user_name_without_spaces{
+    type: string
+    sql: length(${full_name})-1 ;;
+  }
+
+  dimension: decade_grouping {
+    type: tier
+    tiers: [1,10,20,30,40,50,60,70,80,90,100]
+    style: integer
+    sql: ${age} ;;
+  }
+
+  measure: sum_age {
+    type:sum
+    sql: ${age} ;;
+  }
+
+  measure: average_of_age_distinct{
+    type: average_distinct
+    sql_distinct_key: ${first_name} ;;
+    sql: ${age} ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [id, last_name, first_name, orders.count]
