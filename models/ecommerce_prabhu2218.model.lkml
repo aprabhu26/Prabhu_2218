@@ -70,6 +70,14 @@ explore: native_derived_table {
   }
 }
 
+explore: ndt {
+  join: users {
+    type: left_outer
+    sql_on: ${users.city} = ${ndt.city};;
+    relationship: many_to_one
+  }
+}
+
 
 
 

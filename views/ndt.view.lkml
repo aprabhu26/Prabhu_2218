@@ -1,6 +1,6 @@
 view: ndt {
   derived_table: {
-    explore_source: order_items {
+    explore_source: orders {
       column: count { field: orders.count }
       column: city { field: users.city }
     }
