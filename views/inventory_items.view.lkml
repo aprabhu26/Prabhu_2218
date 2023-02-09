@@ -69,15 +69,14 @@ view: inventory_items {
     type: unquoted
     allowed_value: {
       label: "Total Cost"
-      value: "cost"
+      value: "sum"
     }
   }
 
   measure: dynamic_sum {
-    type: sum
-    sql: ${TABLE}.{% parameter item_to_add_up %} ;;
+    type: number
+    sql: ${TABLE}.{% parameter item_to_add_up%}(${cost}) ;;
     value_format_name: "usd"
-
   }
 
   measure: count {

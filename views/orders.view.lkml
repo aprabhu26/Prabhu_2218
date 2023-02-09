@@ -55,4 +55,95 @@ view: orders {
     type: count
     drill_fields: [id, users.last_name, users.id, users.first_name, order_items.count]
   }
+
+  measure: count_organic_users {
+    type: count_distinct
+    sql:  ${user_id} ;;
+    drill_fields: [id, users.id, users.first_name, users.last_name, order_items.count]
+    filters: {
+      field: campaign
+      value: "Organic"
+    }
+  }
+
+  measure: count_display_users {
+    type: count_distinct
+    sql:  ${user_id} ;;
+    drill_fields: [id, users.id, users.first_name, users.last_name, order_items.count]
+    filters: {
+      field: campaign
+      value: "Display"
+    }
+  }
+
+  measure: count_email_users {
+    type: count_distinct
+    sql:  ${user_id} ;;
+    drill_fields: [id, users.id, users.first_name, users.last_name, order_items.count]
+    filters: {
+      field: campaign
+      value: "Email"
+    }
+  }
+
+  measure: count_facebook_users {
+    type: count_distinct
+    sql:  ${user_id} ;;
+    drill_fields: [id, users.id, users.first_name, users.last_name, order_items.count]
+    filters: {
+      field: campaign
+      value: "Facebook"
+    }
+  }
+
+  measure: count_search_users {
+    type: count_distinct
+    sql:  ${user_id} ;;
+    drill_fields: [id, users.id, users.first_name, users.last_name, order_items.count]
+    filters: {
+      field: campaign
+      value: "Search"
+    }
+  }
+
+  parameter: campaign_dynamic_selector {
+    type: unquoted
+    allowed_value: {
+      label: "count_display_users"
+      value: "Display"
+    }
+    allowed_value: {
+      label: "count_email_users"
+      value: "Email"
+    }
+    allowed_value: {
+      label: "count_organic_users"
+      value: "organic"
+    }
+    allowed_value: {
+      label: "count_facebook_users"
+      value: "facebook"
+    }
+    allowed_value: {
+      label: "count_search_users"
+      value: "seach"
+    }
+  }
+
+  measure: dynamic_measure{
+    type: string
+    sql: {%if campaign_dynamic_selector._parameter_value == 'Display'%}
+    ${count_display_users}
+    {%elsif campaign_dynamic_selector._parameter_value  == 'Email'%}
+    ${count_email_users}
+    {%elsif campaign_dynamic_selector._parameter_value  == 'organic'%}
+    ${count_organic_users}
+    {%elsif campaign_dynamic_selector._parameter_value  == 'facebook'%}
+    ${count_facebook_users}
+    {%else%}
+    ${count_search_users}
+    {%endif%};;
+
+  }
+
 }

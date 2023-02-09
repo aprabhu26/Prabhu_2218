@@ -133,6 +133,18 @@ view: users {
     sql: ${age} ;;
   }
 
+  dimension: highlighted_lastname {
+    type: string
+    sql: ${last_name};;
+    html:{% if users.last_name._value == _user_attributes['lastname']%}
+     <p style="text-align: center;background-color: yellow;">{{ rendered_value }}</p>
+    {% else %}
+      <p style="text-align: center">{{ rendered_value }}</p>
+    {% endif %}
+    ;;
+  }
+
+
   measure: count {
     type: count
     drill_fields: [id, last_name, first_name, orders.count]
