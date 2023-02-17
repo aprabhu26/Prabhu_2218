@@ -62,6 +62,7 @@ view: users {
       quarter,
       year
     ]
+    convert_tz: no
     sql: ${TABLE}.created_at ;;
   }
 
