@@ -12,6 +12,7 @@ view: product_sheets {
   # This dimension will be called "Custom Grouping" in Explore.
 
   dimension: custom_grouping {
+    description: "custom grouping"
     type: string
     sql: ${TABLE}.custom_grouping ;;
   }
