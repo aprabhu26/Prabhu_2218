@@ -15,7 +15,12 @@ datagroup: ecommerce_prabhu2218_default_datagroup {
 
 persist_with: ecommerce_prabhu2218_default_datagroup
 
-explore: users {}
+explore: users {
+  access_filter: {
+    field: users.state
+    user_attribute: access_filter_test
+  }
+}
 
 explore: products {}
 
