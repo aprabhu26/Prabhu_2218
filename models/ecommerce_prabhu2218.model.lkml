@@ -15,11 +15,17 @@ datagroup: ecommerce_prabhu2218_default_datagroup {
 
 persist_with: ecommerce_prabhu2218_default_datagroup
 
+# access_grant: limited_access_feilds {
+#   user_attribute: access_grant_test
+#   allowed_values: ["prabhu"]
+# }
 explore: users {
-  access_filter: {
-    field: users.state
-    user_attribute: access_filter_test
-  }
+  # access_filter: {
+  #   field: users.state
+  #   user_attribute: access_filter_test
+  # }
+
+  # required_access_grants: [limited_access_feilds]
 }
 
 explore: products {}
