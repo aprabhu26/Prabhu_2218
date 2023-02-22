@@ -8,7 +8,7 @@ include: "/views/**/*.view"
 # use the Quick Help panel on the right to see documentation.
 
 datagroup: ecommerce_prabhu2218_default_datagroup {
-  sql_trigger: SELECT EXTRACT( date FROM DATE_ADD(current_date(), INTERVAL 1 DAY)) != 23 ;;
+  sql_trigger: SELECT EXTRACT( day FROM DATE_ADD(current_date(), INTERVAL 1 DAY)) != 23 ;;
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "24 hour"
 }
