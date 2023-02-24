@@ -9,6 +9,7 @@ view: inventory_items {
   # You need to define a primary key in a view in order to join to other views.
 
   dimension: id {
+    description: "number_format"
     primary_key: yes
     type: number
     sql: ${TABLE}.id ;;
