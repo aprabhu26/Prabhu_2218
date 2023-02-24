@@ -21,9 +21,11 @@ view: products {
   dimension: brand {
     type: string
     sql: ${TABLE}.brand ;;
+    html: <a href="https://www.google.com/search?q={{value|url_encode}}">{{value}}</a> ;;
+
   }
 
-  dimension: brand_search {
+  dimension: brand_dropdown_search {
     sql: ${brand};;
     link: {
       label: "Google"
@@ -31,9 +33,15 @@ view: products {
       icon_url: "https://google.com/favicon.ico"
     }
   }
+
   dimension: category {
     type: string
     sql: ${TABLE}.category ;;
+  }
+
+  dimension: category_search {
+    sql: ${category} ;;
+    html: <ahref ="https://www.google.com/search?q={{ value|url_encode}}">{{value}}}</a> ;;
   }
 
   dimension: department {
