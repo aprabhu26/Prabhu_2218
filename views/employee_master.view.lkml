@@ -22,6 +22,7 @@ view: employee_master {
   }
 
   measure: count {
+    description: "count the data"
     type: count
     drill_fields: []
   }
