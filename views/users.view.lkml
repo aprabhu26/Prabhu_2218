@@ -21,6 +21,9 @@ view: users {
   dimension: age {
     type: number
     sql: ${TABLE}.age ;;
+    # icon_url : "https://www.ucl.ac.uk/human-evolution/sites/human_evolution/files/aging-population.jpg";;
+
+
   }
 
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average

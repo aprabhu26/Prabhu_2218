@@ -26,12 +26,13 @@ view: products {
   }
 
   dimension: brand_dropdown_search {
+    type: string
     sql: ${brand};;
-    link: {
-      label: "Google"
-      url: "https://www.google.com/search?q={{ value }}"
-      icon_url: "https://google.com/favicon.ico"
-    }
+    # link: {
+      # label: "Google"
+      # url: "https://www.google.com/search?q={{ value }}"
+      # icon_url: "https://google.com/favicon.ico"
+    #}
   }
 
   dimension: category {
