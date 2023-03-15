@@ -59,6 +59,7 @@ explore: product_sheets {
 }
 
 explore: orders {
+  sql_always_where: ${created_date} >= '2017-01-01' and ${created_date} <= '2017-01-31';;
   join: users {
     type: left_outer
     sql_on: ${orders.user_id} = ${users.id} ;;
