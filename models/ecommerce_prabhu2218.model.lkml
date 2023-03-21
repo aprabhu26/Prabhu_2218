@@ -11,7 +11,7 @@ datagroup: ecommerce_prabhu2218_default_datagroup {
   interval_trigger: "1 minutes"
   #sql_trigger: SELECT EXTRACT( day FROM DATE_ADD(current_date(), INTERVAL 1 DAY)) != 23 ;;
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "24 hour"
+  #max_cache_age: "24 hour"
 }
 
 persist_with: ecommerce_prabhu2218_default_datagroup
