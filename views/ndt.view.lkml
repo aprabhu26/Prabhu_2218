@@ -1,5 +1,6 @@
 view: ndt {
   derived_table: {
+    interval_trigger: "1 minutes"
     explore_source: orders {
       column: count { field: orders.count }
       column: city { field: users.city }

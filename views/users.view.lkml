@@ -97,7 +97,12 @@ view: users {
   dimension: state {
     type: string
     sql: ${TABLE}.state ;;
-    html: <a href="https://www.google.com/search?q={{value|url_encode}}">{{value}}</a>;;
+    link: {
+      label: "States link"
+      url: "http://www.google.com/search?q={{ value }}"
+      icon_url: "url_of_an_image_file"
+   }
+    #html: <a href="https://www.google.com/search?q={{value|url_encode}}">{{value}}</a>;;
   }
 
   dimension: traffic_source {
