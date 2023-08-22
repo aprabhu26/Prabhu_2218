@@ -185,6 +185,7 @@ view: orders {
   }
 
   measure: dynamic_measure{
+    label_from_parameter: campaign_dynamic_selector
     type: string
     sql: {%if campaign_dynamic_selector._parameter_value == 'Display'%}
     ${count_display_users}
